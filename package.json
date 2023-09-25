@@ -24,6 +24,7 @@
     "test-browser2": "karma start --single-run"
   },
   "dependencies": {
+    "fastify": "^4.23.2",
     "prettier": "^3.0.3"
   },
   "devDependencies": {
