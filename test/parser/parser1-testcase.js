@@ -1,9 +1,9 @@
 import { assert } from 'chai'
-import Parser from "../../src/parser/parse1.es6";
+import Parser from "../../src/parser/parse1.js";
 import loadFixture from '../fixture-reader.js';
 
 export default function (files) {
-  describe('parser1.es6', () => {
+  describe('parser1.js', () => {
     files.forEach((file) => {
       describe(`#Parser1(${file})`, () => {
         loadFixture('parser/fixtures/' + file).forEach((test) => {

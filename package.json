@@ -7,7 +7,7 @@
   "main": "dist/samjs.js",
   "module": "dist/samjs.esm.js",
   "scripts": {
-    "prettify": "prettier -w src/**/*.es6",
+    "prettify": "prettier -w src/**/*.js",
     "dev": "rollup -w -c build/config.js --environment TARGET:dev",
     "dev:cjs": "rollup -w -c build/config.js --environment TARGET:cjs",
     "dev:esm": "rollup -w -c build/config.js --environment TARGET:esm",

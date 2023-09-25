@@ -25,11 +25,11 @@ import {
   multtable,
   sinus,
   rectangle
-} from './tables.es6';
+} from './tables.js';
 
-import {BREAK, END} from '../../../src/common/constants.es6'
+import {BREAK, END} from '../../../src/common/constants.js'
 
-import UInt8 from '../../../src/types/UInt8.es6';
+import UInt8 from '../../../src/types/UInt8.js';
 
 const PHONEME_PERIOD = 1;
 const PHONEME_QUESTION = 2;

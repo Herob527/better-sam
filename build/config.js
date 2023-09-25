@@ -11,6 +11,12 @@ initialised.get("/", async (request, reply) => {
   const data = await fs.readFile(path.resolve("index.html"));
   return reply.type("text/html").send(data);
 });
+
+initialised.get("/dist/samjs.js", async (request, reply) => {
+  const data = await fs.readFile(path.resolve("dist/samjs.js"));
+  return reply.type("application/javascript").send(data);
+});
+
 initialised.listen(
   {
     port: 3000,
@@ -46,13 +52,13 @@ const resolve = (p) => {
 const buildSrc = [
   {
     name: "",
-    entry: "src/index.es6",
+    entry: "src/index.js",
     dest: "samjs",
     moduleName: "SamJs",
   },
   {
     name: "guessnum-demo",
-    entry: "src/guessnum.es6",
+    entry: "src/guessnum.js",
     dest: "guessnum",
     moduleName: "GuessNum",
   },

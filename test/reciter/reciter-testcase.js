@@ -1,10 +1,10 @@
 import { assert } from 'chai'
-import TextToPhonemes from "../../src/reciter/reciter.es6";
-import TextToPhonemesC from "./c-conv/reciter.es6";
+import TextToPhonemes from "../../src/reciter/reciter.js";
+import TextToPhonemesC from "./c-conv/reciter.js";
 import loadFixture from '../fixture-reader.js';
 
 export default function (files) {
-  describe('reciter.es6', () => {
+  describe('reciter.js', () => {
     files.forEach((file) => {
       describe(`#Reciter.TextToPhonemes(${file})`, () => {
         loadFixture('reciter/fixtures/' + file).forEach((word) => {
@@ -17,7 +17,7 @@ export default function (files) {
       });
     });
   });
-  describe('reciter-c.es6', () => {
+  describe('reciter-c.js', () => {
     files.forEach((file) => {
       describe(`#Reciter.TextToPhonemes(${file})`, () => {
         loadFixture('reciter/fixtures/' + file).forEach((word) => {

@@ -2,7 +2,7 @@ import {
   text2Uint8Array,
   Uint32ToUint8Array,
   Uint16ToUint8Array,
-} from "../util/util.es6";
+} from "../util/util.js";
 
 /**
  *

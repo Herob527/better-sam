@@ -16,7 +16,7 @@ module.exports = function(config) {
     },
     files: [
       'test/minimum-tests.spec.js',
-      'src/**/*.es6',
+      'src/**/*.js',
       // fixtures
       'test/**/*.json',
       {pattern: 'test/**/*-testcase.js', include: false, serve: false, watch: true}
@@ -35,7 +35,7 @@ module.exports = function(config) {
       showDiff: true
     },
     preprocessors: {
-      'src/**/*.es6': ['browserify', 'sourcemap'],
+      'src/**/*.js': ['browserify', 'sourcemap'],
       'test/**/*.spec.js': ['browserify', 'sourcemap'],
       'test/**/*-testcase.js': ['browserify', 'sourcemap']
     },

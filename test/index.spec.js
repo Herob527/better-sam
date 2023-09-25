@@ -1,8 +1,8 @@
 import { assert } from 'chai'
 
-import SamJs from '../src/index.es6';
+import SamJs from '../src/index.js';
 
-describe('index.es6', () => {
+describe('index.js', () => {
   describe('SamJs', () => {
     it('should have method buf8', () => {
       const sam = new SamJs({});

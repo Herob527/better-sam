@@ -1,6 +1,6 @@
-import {PlayBuffer, RenderBuffer} from './util/player.es6'
-import TextToPhonemes from './reciter/reciter.es6';
-import {SamProcess, SamBuffer} from './sam/sam.es6';
+import {PlayBuffer, RenderBuffer} from './util/player.js'
+import TextToPhonemes from './reciter/reciter.js';
+import {SamProcess, SamBuffer} from './sam/sam.js';
 
 const convert = TextToPhonemes;
 const buf8 = SamProcess;
