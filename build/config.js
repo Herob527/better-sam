@@ -3,6 +3,24 @@ const buble = require("@rollup/plugin-buble");
 const replace = require("@rollup/plugin-replace");
 const flow = require("rollup-plugin-flow-no-whitespace");
 const version = process.env.VERSION || require("../package.json").version;
+const fastify = require("fastify");
+const fs = require("fs/promises");
+
+const initialised = fastify({ logger: true });
+initialised.get("/", async (request, reply) => {
+  const data = await fs.readFile(path.resolve("index.html"));
+  return reply.type("text/html").send(data);
+});
+initialised.listen(
+  {
+    port: 3000,
+  },
+  (err) => {
+    if (err) {
+      fastify.log.error(err);
+    }
+  },
+);
 
 const banner =
   "/**\n" +
