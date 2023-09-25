@@ -7,7 +7,7 @@ export default class Uint8 {
    * Retrieve the value.
    * @returns {Number}
    */
-  get () {
+  get() {
     return this._value;
   }
 
@@ -18,8 +18,8 @@ export default class Uint8 {
    *
    * @returns {Uint8}
    */
-  set (value) {
-    this._value = value & 0xFF;
+  set(value) {
+    this._value = value & 0xff;
 
     return this;
   }

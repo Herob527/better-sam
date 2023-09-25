@@ -1,5 +1,5 @@
-import {BREAK, END} from '../common/constants.es6'
-import {FLAG_PUNCT} from './constants.es6'
+import { BREAK, END } from "../common/constants.es6";
+import { FLAG_PUNCT } from "./constants.es6";
 
 import { phonemeHasFlag } from "./util.es6";
 
@@ -14,12 +14,19 @@ import { phonemeHasFlag } from "./util.es6";
  *
  * @return undefined
  */
-export default function InsertBreath(getPhoneme, setPhoneme, insertPhoneme, setStress, getLength, setLength) {
+export default function InsertBreath(
+  getPhoneme,
+  setPhoneme,
+  insertPhoneme,
+  setStress,
+  getLength,
+  setLength,
+) {
   let mem54 = 255;
   let len = 0; // mem55
   let index; //variable Y
   let pos = -1;
-  while((index = getPhoneme(++pos)) !== END) {
+  while ((index = getPhoneme(++pos)) !== END) {
     len += getLength(pos);
     if (len < 232) {
       if (phonemeHasFlag(index, FLAG_PUNCT)) {

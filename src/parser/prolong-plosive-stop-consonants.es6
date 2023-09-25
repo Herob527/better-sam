@@ -1,7 +1,11 @@
-import {END} from '../common/constants.es6'
-import {combinedPhonemeLengthTable} from './tables.es6';
-import {FLAG_0008, FLAG_STOPCONS, FLAG_UNVOICED_STOPCONS} from './constants.es6'
-import { phonemeHasFlag } from './util.es6';
+import { END } from "../common/constants.es6";
+import { combinedPhonemeLengthTable } from "./tables.es6";
+import {
+  FLAG_0008,
+  FLAG_STOPCONS,
+  FLAG_UNVOICED_STOPCONS,
+} from "./constants.es6";
+import { phonemeHasFlag } from "./util.es6";
 
 /**
  * Makes plosive stop consonants longer by inserting the next two following
@@ -13,8 +17,12 @@ import { phonemeHasFlag } from './util.es6';
  *
  * @return undefined
  */
-export default function ProlongPlosiveStopConsonantsCode41240(getPhoneme, insertPhoneme, getStress) {
-  let pos=-1;
+export default function ProlongPlosiveStopConsonantsCode41240(
+  getPhoneme,
+  insertPhoneme,
+  getStress,
+) {
+  let pos = -1;
   let index;
   while ((index = getPhoneme(++pos)) !== END) {
     // Not a stop consonant, move to next one.
@@ -25,19 +33,31 @@ export default function ProlongPlosiveStopConsonantsCode41240(getPhoneme, insert
     if (phonemeHasFlag(index, FLAG_UNVOICED_STOPCONS)) {
       let nextNonEmpty;
       let X = pos;
-      do { nextNonEmpty = getPhoneme(++X); } while (nextNonEmpty === 0);
+      do {
+        nextNonEmpty = getPhoneme(++X);
+      } while (nextNonEmpty === 0);
       // If not END and either flag 0x0008 or '/H' or '/X'
-      if ((nextNonEmpty !== END)
-        && (
-          phonemeHasFlag(nextNonEmpty, FLAG_0008)
-          || (nextNonEmpty === 36)
-          || (nextNonEmpty === 37))
+      if (
+        nextNonEmpty !== END &&
+        (phonemeHasFlag(nextNonEmpty, FLAG_0008) ||
+          nextNonEmpty === 36 ||
+          nextNonEmpty === 37)
       ) {
         continue;
       }
     }
-    insertPhoneme(pos + 1, index + 1, getStress(pos), combinedPhonemeLengthTable[index + 1] & 0xFF);
-    insertPhoneme(pos + 2, index + 2, getStress(pos), combinedPhonemeLengthTable[index + 2] & 0xFF);
+    insertPhoneme(
+      pos + 1,
+      index + 1,
+      getStress(pos),
+      combinedPhonemeLengthTable[index + 1] & 0xff,
+    );
+    insertPhoneme(
+      pos + 2,
+      index + 2,
+      getStress(pos),
+      combinedPhonemeLengthTable[index + 2] & 0xff,
+    );
     pos += 2;
   }
 }

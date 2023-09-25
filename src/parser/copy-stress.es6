@@ -1,7 +1,7 @@
-import {END} from '../common/constants.es6'
-import {FLAG_VOWEL, FLAG_CONSONANT} from './constants.es6'
+import { END } from "../common/constants.es6";
+import { FLAG_VOWEL, FLAG_CONSONANT } from "./constants.es6";
 
-import { phonemeHasFlag } from './util.es6';
+import { phonemeHasFlag } from "./util.es6";
 
 /**
  * Iterates through the phoneme buffer, copying the stress value from
@@ -26,15 +26,15 @@ export default function CopyStress(getPhoneme, getStress, setStress) {
   // loop through all the phonemes to be output
   let position = 0;
   let phoneme;
-  while((phoneme = getPhoneme(position)) !== END) {
+  while ((phoneme = getPhoneme(position)) !== END) {
     // if CONSONANT_FLAG set, skip - only vowels get stress
     if (phonemeHasFlag(phoneme, FLAG_CONSONANT)) {
       phoneme = getPhoneme(position + 1);
       // if the following phoneme is the end, or a vowel, skip
-      if ((phoneme !== END) && phonemeHasFlag(phoneme, FLAG_VOWEL)) {
+      if (phoneme !== END && phonemeHasFlag(phoneme, FLAG_VOWEL)) {
         // get the stress value at the next position
         let stress = getStress(position + 1);
-        if ((stress !== 0) && (stress < 0x80)) {
+        if (stress !== 0 && stress < 0x80) {
           // if next phoneme is stressed, and a VOWEL OR ER
           // copy stress from next phoneme to this one
           setStress(position, stress + 1);

@@ -1,7 +1,7 @@
-import {PlayBuffer, UInt8ArrayToFloat32Array} from '../util/player.es6';
+import { PlayBuffer, UInt8ArrayToFloat32Array } from "../util/player.es6";
 
-import Parser from '../parser/parser.es6';
-import Renderer from '../renderer/renderer.es6';
+import Parser from "../parser/parser.es6";
+import Renderer from "../renderer/renderer.es6";
 
 /**
  * Process the input and play the audio buffer.
@@ -18,7 +18,7 @@ import Renderer from '../renderer/renderer.es6';
  *
  * @return {Promise}
  */
-export function SamSpeak (input, options) {
+export function SamSpeak(input, options) {
   const buffer = SamBuffer(input, options);
   if (false === buffer) {
     return Promise.reject();
@@ -43,7 +43,7 @@ export function SamSpeak (input, options) {
  *
  * @return {Float32Array|Boolean}
  */
-export function SamBuffer (input, options) {
+export function SamBuffer(input, options) {
   const buffer = SamProcess(input, options);
   if (false === buffer) {
     return false;
@@ -67,11 +67,18 @@ export function SamBuffer (input, options) {
  *
  * @return {Uint8Array|Boolean}
  */
-export function SamProcess (input, options = {}) {
+export function SamProcess(input, options = {}) {
   const parsed = Parser(input);
   if (false === parsed) {
     return false;
   }
 
-  return Renderer(parsed, options.pitch, options.mouth, options.throat, options.speed, options.singmode);
+  return Renderer(
+    parsed,
+    options.pitch,
+    options.mouth,
+    options.throat,
+    options.speed,
+    options.singmode,
+  );
 }

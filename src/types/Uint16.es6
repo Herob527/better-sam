@@ -3,12 +3,12 @@ export default class Uint16 {
     this.set(value || 0);
   }
 
-  get () {
+  get() {
     return this._value;
   }
 
-  set (value) {
-    this._value = value & 0xFFFF;
+  set(value) {
+    this._value = value & 0xffff;
 
     return this;
   }
@@ -29,10 +29,10 @@ export default class Uint16 {
     return this.get();
   }
 
-  asUint8Array () {
+  asUint8Array() {
     const result = new Uint8Array(2);
-    result[0]  = this._value;
-    result[1]  = this._value >> 8;
+    result[0] = this._value;
+    result[1] = this._value >> 8;
 
     return result;
   }
