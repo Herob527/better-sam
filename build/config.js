@@ -62,6 +62,12 @@ const buildSrc = [
     dest: "guessnum",
     moduleName: "GuessNum",
   },
+  {
+    name: "ui",
+    entry: "src/ui.js",
+    dest: "ui",
+    moduleName: "Ui",
+  },
 ];
 
 const builds = {};
