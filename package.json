@@ -8,6 +8,7 @@
   "module": "dist/samjs.esm.js",
   "scripts": {
     "prettify": "prettier -w src/**/*.js",
+    "lint-fix": "eslint --fix src/**/*.js",
     "dev": "rollup -w -c build/config.js --environment TARGET:dev",
     "dev:cjs": "rollup -w -c build/config.js --environment TARGET:cjs",
     "dev:esm": "rollup -w -c build/config.js --environment TARGET:esm",
