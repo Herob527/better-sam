@@ -1,4 +1,5 @@
 const path = require("path");
+const json = require("@rollup/plugin-json");
 const buble = require("@rollup/plugin-buble");
 const replace = require("@rollup/plugin-replace");
 const flow = require("rollup-plugin-flow-no-whitespace");
@@ -126,6 +127,7 @@ function genConfig(opts) {
     },
     external: opts.external,
     plugins: [
+      json(),
       replace({
         __VERSION__: version,
       }),

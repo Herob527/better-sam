@@ -1,17 +1,7 @@
 import SamJs from "./index";
+import characters from "./characters.json";
 
 const mappings = {};
-
-const characters = [
-  {
-    name: "john",
-    opts: { debug: 1, pitch: 64, speed: 72, mouth: 128, throat: 128 },
-  },
-  {
-    name: "Father Garcia",
-    opts: { mouth: 88, throat: 127, speed: 75, pitch: 95 },
-  },
-];
 
 let opts = characters[0].opts;
 

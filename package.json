@@ -25,6 +25,7 @@
     "test-browser2": "karma start --single-run"
   },
   "dependencies": {
+    "@rollup/plugin-json": "^6.0.1",
     "fastify": "^4.23.2",
     "prettier": "^3.0.3"
   },
